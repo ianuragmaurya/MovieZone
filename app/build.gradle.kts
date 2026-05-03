@@ -1,3 +1,4 @@
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -21,7 +22,15 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        val tmdbKey: String = project.findProperty("TMDB_API_KEY")?.toString() ?: ""
+        val localProperties = Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+
+        if (localPropertiesFile.exists()) {
+            localProperties.load(localPropertiesFile.inputStream())
+        }
+
+        val tmdbKey = localProperties.getProperty("TMDB_API_KEY") ?: ""
+
 
         buildConfigField("String", "TMDB_API_KEY", "\"$tmdbKey\"")
 
