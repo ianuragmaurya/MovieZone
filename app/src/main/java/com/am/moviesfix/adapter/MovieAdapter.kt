@@ -1,5 +1,6 @@
 package com.am.moviesfix.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,10 +50,10 @@ class MovieAdapter(
         holder.itemView.setOnClickListener {
             onItemClick(movie)
         }
-
 // Load the movie poster image using Glide library and display it in the ImageView
         Glide.with(holder.itemView.context)
             .load(movie.posterUrl)
+            .placeholder(android.R.drawable.ic_menu_report_image)
             .into(holder.moviePoster)
 
 

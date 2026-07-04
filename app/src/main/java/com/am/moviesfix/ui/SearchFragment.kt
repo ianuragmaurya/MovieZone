@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.am.moviesfix.MovieViewModel
+import com.am.moviesfix.MovieViewModelFactory
 import com.am.moviesfix.R
 import com.am.moviesfix.adapter.SearchAdapter
 import com.am.moviesfix.model.Movie
@@ -36,7 +37,8 @@ class SearchFragment : Fragment() {
         searchBox = view.findViewById(R.id.searchBox)
         searchRv = view.findViewById(R.id.searchRv)
 
-        val viewModel = ViewModelProvider(requireActivity())[MovieViewModel::class.java]
+        val factory = MovieViewModelFactory(application = requireActivity().application)
+        val viewModel = ViewModelProvider(requireActivity(), factory)[MovieViewModel::class.java]
 
         val movieList = ArrayList<Movie>()
 

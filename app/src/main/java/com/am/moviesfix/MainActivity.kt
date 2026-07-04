@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
+       val factory = MovieViewModelFactory(application = application)
+        viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 
         prefManager = PrefManager(this)
         applyTheme()

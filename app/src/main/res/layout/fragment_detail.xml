@@ -18,7 +18,7 @@
             <ImageView
                 android:id="@+id/detailPoster"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="400dp"
                 android:scaleType="centerInside"
                 android:adjustViewBounds="true"/>
 

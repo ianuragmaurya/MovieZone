@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.am.moviesfix.MovieViewModel
+import com.am.moviesfix.MovieViewModelFactory
 import com.am.moviesfix.R
 import com.am.moviesfix.model.Movie
 import com.bumptech.glide.Glide
@@ -44,7 +45,8 @@ class DetailFragment : Fragment() {
         releaseYear = view.findViewById(R.id.releaseYear)
         favourite = view.findViewById(R.id.favourite)
 
-        val viewModel = ViewModelProvider(requireActivity())[MovieViewModel::class.java]
+        val factory = MovieViewModelFactory(application = requireActivity().application)
+        val viewModel = ViewModelProvider(requireActivity(), factory)[MovieViewModel::class.java]
 
 
 

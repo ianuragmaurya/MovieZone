@@ -1,6 +1,5 @@
 package com.am.moviesfix.model
 
-import android.media.Rating
 import com.google.gson.annotations.SerializedName
 
 data class TmdbMovie (

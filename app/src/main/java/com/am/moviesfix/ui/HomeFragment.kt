@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.am.moviesfix.MovieViewModel
+import com.am.moviesfix.MovieViewModelFactory
 import com.am.moviesfix.R
 import com.am.moviesfix.adapter.MovieAdapter
 import com.am.moviesfix.model.Movie
@@ -27,7 +28,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel = ViewModelProvider(requireActivity())[MovieViewModel::class.java]
+        val factory = MovieViewModelFactory(application = requireActivity().application)
+        val viewModel = ViewModelProvider(requireActivity(), factory)[MovieViewModel::class.java]
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
 
